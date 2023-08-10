@@ -29,6 +29,14 @@
       append: true
       groups: ["docker"]
       name: intrinsic
+  - name: Set nvidia-container-runtime as default Docker runtime
+    copy:
+      src: daemon.json
+      dest: /etc/docker/daemon.json
+      owner: root
+      group: root
+      mode: '0644'
+      backup: no
 
 - name: User setup
   hosts: jetsons
